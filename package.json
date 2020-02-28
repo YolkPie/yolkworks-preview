@@ -1,11 +1,9 @@
 {
   "private": true,
-  "name": "codepan",
-  "productName": "CodePan",
-  "description": "Play with JS/CSS/HTML so simple it hurts",
-  "details": "CodePan is where people prototype front-end apps, you are free to use it offline anytime anywhere.",
+  "name": "yolkworks-preview",
+  "description": "yolkworks模板预览项目",
   "main": "src/index.js",
-  "homepage": "https://codepan.net/",
+  "homepage": "https://yolkpie.net/",
   "version": "0.1.0",
   "repository": {},
   "scripts": {
@@ -13,7 +11,7 @@
     "lint": "xo",
     "dev": "poi",
     "build": "poi build",
-    "deploy": "surge -p dist -d codepan.net",
+    "deploy": "surge -p dist -d yolkpie.net",
     "predeploy": "npm run build && cp dist/index.html dist/200.html",
     "report": "poi build --bundle-report"
   },
