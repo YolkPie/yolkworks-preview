@@ -11,7 +11,7 @@ const GitHubSuccess = () => import(/* webpackChunkName: "ghlogin-result" */ '@/v
 const Test = () => import(/* webpackChunkName: "ghlogin-result" */ '@/views/GitHubSuccess' + '.vue')
 
 let routerConfig = {
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       name: 'home',
