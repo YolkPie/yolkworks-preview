@@ -1,0 +1,5 @@
+<script src="https://unpkg.com/vue"></script>
+${scripts}
+<div id="app">
+  ${template}
+</div>
