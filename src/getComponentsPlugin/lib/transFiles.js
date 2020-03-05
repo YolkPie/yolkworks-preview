@@ -239,7 +239,7 @@ const transFileByTempName = function (name) {
         // 写入index.js配置
         writeCustomFile(dirName, 'index.js', recoverEnter(vueConfig.templates.indexJs))
       }
-    
+    })
   }
 }
 
