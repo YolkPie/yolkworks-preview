@@ -149,6 +149,15 @@ const vueConfig = {
   }
 }
 
+const reactConfig = {
+  files: ['jsx', 'css', 'scss', 'less', 'sasss'],
+  templates: {
+    codepanHtml: getFileContent(path.join(_dirname, '../templates/react', 'codepan.html', 'text')),
+    indexJs: getFileContent(path.join(_dirname, '../templates/react', 'index.js', 'text')),
+    codepanJs: getFileContent(path.join(_dirname, '../templates/react', 'codepan.js', 'text'))
+  }
+}
+
 
 /**
  * 根据模板名称转换文件
@@ -196,6 +205,41 @@ const transFileByTempName = function (name) {
         writeCustomFile(dirName, 'index.js', recoverEnter(vueConfig.templates.indexJs))
       }
     })
+  } else if (type === 'react') {
+    reactConfig.files.forEach(fileType => {
+      // 获取模板文件夹中的文件（均以index命名）
+      const fileContent = clearEnter(getTempFileContent(tempDir, fileType))
+      let cssContent = '' // css内容来源于vue文件中style标签及index.css
+      if (fileContent && fileContent.length) {
+        if (fileType === 'jsx') {
+          // 写入codepan.html
+          // 1. 获取jsx格式文件中template的内容
+          const template = extractTemplateFromText(fileContent)
+          // 2. 获取package.json中所需要的依赖，作为script标签添加
+          const scripts = extractLibraryFromPkg(tempDir)
+          if (template && template.length) {
+            writeCustomFile(dirName, 'codepan.html', recoverEnter(vueConfig.templates.codepanHtml.replace('${template}', template).replace('${scripts}', scripts)))
+          }
+
+          // todo: 获取vue格式中style的内容
+          // const css = extractCssFromText(fileContent)
+
+          // 写入codepan.js
+          const js = extractJsFromText(fileContent)
+          writeCustomFile(dirName, 'codepan.js', recoverEnter(vueConfig.templates.codepanJS.replace('${content}', js)))
+
+        } else if (fileType === 'css') {
+          cssContent += fileContent
+        } else if (fileType === 'less' || fileType === 'scss' || fileType === 'sass') {
+          // todo: 暂时未考虑
+        }
+        // 写入css文件
+        writeCustomFile(dirName, 'index.css', recoverEnter(fileContent))
+
+        // 写入index.js配置
+        writeCustomFile(dirName, 'index.js', recoverEnter(vueConfig.templates.indexJs))
+      }
+    
   }
 }
 

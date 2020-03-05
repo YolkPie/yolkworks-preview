@@ -1,6 +1,15 @@
 node_modules
 *.log
 .DS_Store
+war
+.svn
+.tmp
+temp
+tmp
+/.idea
+*.iml
+package-lock.json
+.project
 
 # produced by vbuild
 # dist

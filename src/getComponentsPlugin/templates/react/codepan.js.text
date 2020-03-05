@@ -1,0 +1,5 @@
+class App extends React.Component {
+  ${content}
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
