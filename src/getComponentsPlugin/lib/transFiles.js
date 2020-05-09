@@ -150,7 +150,7 @@ const vueConfig = {
 }
 
 const reactConfig = {
-  files: ['jsx', 'css', 'scss', 'less', 'sasss'],
+  files: ['jsx', 'css', 'scss', 'less', 'sass'],
   templates: {
     codepanHtml: getFileContent(path.join(__dirname, '../templates/react', 'codepan.html', 'text')),
     indexJs: getFileContent(path.join(__dirname, '../templates/react', 'index.js', 'text')),
@@ -217,9 +217,9 @@ const transFileByTempName = function (name) {
           const template = extractTemplateFromText(fileContent)
           // 2. 获取package.json中所需要的依赖，作为script标签添加
           const scripts = extractLibraryFromPkg(tempDir)
-          if (template && template.length) {
+          // if (template && template.length) {
             writeCustomFile(dirName, 'codepan.html', recoverEnter(vueConfig.templates.codepanHtml.replace('${template}', template).replace('${scripts}', scripts)))
-          }
+          // }
 
           // todo: 获取vue格式中style的内容
           // const css = extractCssFromText(fileContent)

@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-awesome-swiper"></script>
+<div id="app">
+    <div class="zoombox">
+        <div id="bidimg">
+            <p>分开配置大小图片地址</p>
+            <div class="pic-box">
+                <pic-zoom url="//weiliicimg1.pstatp.com/weili/sm/804699824190390426.webp" big-url="//weiliicimg1.pstatp.com/weili/sm/804699824190390426.webp" :scale="2" ></pic-zoom>
+            </div>
+        </div>
+        <div class="box">
+            <pic-zoom :url="imgUrl" :scale="1.7" :scalebox="1.2" :scroll="true"></pic-zoom>
+        </div>
+        <div class="list">
+            <div class="list-swiper">
+                <swiper :options="swiperOption">
+                    <swiper-slide v-for="(item, index) in imagesList" :key="index + '_imgswiper_item'">
+                        <div class="img-wrapper" :class="{borderred:index==hoverIndex}" @mouseenter="changeImage(index)">
+                            <img class="swiper-img" :src="item"/>
+                        </div>
+                    </swiper-slide>
+                </swiper>
+            </div>
+            <div class="swiper-button-prev myprev"></div>
+            <div class="swiper-button-next mynext"></div>
+        </div>
+    </div>
+
+</div>

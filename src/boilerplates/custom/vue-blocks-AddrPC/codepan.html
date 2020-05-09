@@ -1,0 +1,39 @@
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios"></script><script src="https://unpkg.com/axios-retry"></script>
+<div id="app">
+    <div class="mainlist" @click="showAddrClick('none')">
+        <div class="main-con">
+            <div class="search-header">
+                <div class=" jOtehy">
+                    <dl class="addr-box">
+                        <dt class="addr-head">所在地区:</dt>
+                        <dd class="addr-con">
+                            <!--一级地址-->
+                            <dl class="addritem-box">
+                                <dt  class="addritem-dt" :class="{'activedt-addr':showAddr=='F'}" @click.stop="showAddrClick('F')">{{addrFText}}</dt>
+                                <dd class="addritem-dd" :class="{'activedd-addr':showAddr=='F'}">
+                                    <span class="addrs-item" v-for="(item,index) in addrFList" :key="index+'_addrFList'" @click="fristAddrClick(item)" >{{item.name}}</span>
+                                </dd>
+                            </dl>
+                            <!--二级（直辖市结束）地址-->
+                            <dl class="addritem-box" v-show="addrSList.length">
+                                <dt class="addritem-dt" :class="{'activedt-addr':showAddr=='S'}" @click.stop="showAddrClick('S')">{{addrSText}}</dt>
+                                <dd class="addritem-dd" :class="{'activedd-addr':showAddr=='S'}">
+                                    <span class="addrs-item" v-for="(item,index) in addrSList" :key="index+'_addrSList'" @click="seconAddrClick(item,true)" >{{item.name}}</span>
+                                </dd>
+                            </dl>
+                            <!--三级（非直辖市）地址-->
+                            <dl class="addritem-box" v-show="addrTList.length">
+                                <dt class="addritem-dt" :class="{'activedt-addr':showAddr=='T'}" @click.stop="showAddrClick('T')">{{addrTText}}</dt>
+                                <dd class="addritem-dd" :class="{'activedd-addr':showAddr=='T'}">
+                                    <span class="addrs-item" v-for="(item,index) in addrTList" :key="index+'_addrTList'" @click="threeAddrClick(item)" >{{item.name}}</span>
+                                </dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
