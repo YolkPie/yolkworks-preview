@@ -1,0 +1,35 @@
+language: node_js
+node_js:
+  - lts/*
+cache:
+  directories:
+    - node_modules
+install:
+  - yarn
+script:
+  - yarn build
+after_success:
+  - git config --global user.name "${U_NAME}"
+  - git config --global user.email "${U_EMAIL}"
+  - git clone "https://${GH_TOKEN}@${GH_REF}"
+  - if [! -d "${GH_DIR}"]; then
+  - mkdir "${GH_DIR}"
+  - fi
+  - cp -rf dist/* "${GH_DIR}"
+  - cd ./yolkpie.github.io
+  - git add .
+  - git commit -m 'travis-ci auto build yolkworks-preview'
+  - git push origin "${P_BRANCH}"
+  - cd ../
+  - git clone "https://${U_NAME2}:${CO_TOKEN}@${CO_REF}"
+  - if [! -d "${CO_DIR}"]; then
+  - mkdir "${CO_DIR}"
+  - fi
+  - cp -rf dist/* "${CO_DIR}"
+  - cd ./yolkpie.coding.io
+  - git add .
+  - git commit -m 'travis-ci auto build yolkworks-preview'
+  - git push origin "${P_BRANCH}"
+branches:
+  only:
+    - master
