@@ -152,9 +152,9 @@ const vueConfig = {
 const reactConfig = {
   files: ['jsx', 'css', 'scss', 'less', 'sasss'],
   templates: {
-    codepanHtml: getFileContent(path.join(_dirname, '../templates/react', 'codepan.html', 'text')),
-    indexJs: getFileContent(path.join(_dirname, '../templates/react', 'index.js', 'text')),
-    codepanJs: getFileContent(path.join(_dirname, '../templates/react', 'codepan.js', 'text'))
+    codepanHtml: getFileContent(path.join(__dirname, '../templates/react', 'codepan.html', 'text')),
+    indexJs: getFileContent(path.join(__dirname, '../templates/react', 'index.js', 'text')),
+    codepanJs: getFileContent(path.join(__dirname, '../templates/react', 'codepan.js', 'text'))
   }
 }
 
