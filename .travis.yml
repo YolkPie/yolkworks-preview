@@ -33,3 +33,4 @@ after_success:
 branches:
   only:
     - master
+warnings_are_errors: false
