@@ -199,7 +199,7 @@ const transFileByTempName = function (name) {
           // todo: 暂时未考虑
         }
         // 写入css文件
-        writeCustomFile(dirName, 'index.css', recoverEnter(fileContent))
+        writeCustomFile(dirName, 'index.css', recoverEnter(cssContent))
 
         // 写入index.js配置
         writeCustomFile(dirName, 'index.js', recoverEnter(vueConfig.templates.indexJs))

@@ -63,7 +63,7 @@ function importAll(r) {
   })
 }
 importAll(require.context('@/boilerplates', true, /index.js$/))
-console.log(boilerplates)
+console.log(Object.keys(boilerplates))
 
 const store = new Vuex.Store({
   state: {
