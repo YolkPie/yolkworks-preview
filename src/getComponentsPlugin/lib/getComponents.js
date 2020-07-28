@@ -8,7 +8,7 @@ function getIndexOfPathByDeep(components, dir, curDir, deep) {
   if(deep) {
     if (curDir.toLowerCase().indexOf('package.json') !== -1) {
       // package.json文件,获取路径信息
-      const folders = dir.split('\\').splice(-3)
+      const folders = dir.split(dir.indexOf('\\') !== -1 ? '\\' : '/').splice(-3)
       components.push(`${folders[0]}-${folders[1]}-${folders[2]}`)
     } else {
       // 排除指定文件

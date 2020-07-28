@@ -33,10 +33,6 @@
       <console-pan class="pan" v-show="isVisible('console')" />
       <output-pan class="pan" v-show="isVisible('output')" />
     </div>
-
-    <div ref="codefund">
-      <div class="codefund-placeholder">Loading CodeFund...</div>
-    </div>
   </div>
 </template>
 
@@ -164,8 +160,6 @@ export default {
     Event.$on('show-compiled-code', type => {
       this.showCompiledCode[type] = true
     })
-
-    this.getCodeFund()
   },
   methods: {
     ...mapActions(['setBoilerplate', 'setGist', 'showPans', 'setAutoRun']),
@@ -189,10 +183,6 @@ export default {
           })
         }
       }
-    },
-    async getCodeFund() {
-      const res = await axios.get('https://codefund.io/properties/241/funder.html')
-      this.$refs.codefund.innerHTML = res.data
     }
   },
   beforeDestroy() {
