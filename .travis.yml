@@ -8,7 +8,7 @@ cache:
 install:
   - yarn
 script:
-  - yarn build
+  - CI=false yarn build
 after_success:
   - git config --global user.name "${U_NAME}"
   - git config --global user.email "${U_EMAIL}"
