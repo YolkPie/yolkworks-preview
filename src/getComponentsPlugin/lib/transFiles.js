@@ -171,6 +171,7 @@ const transFileByTempName = function (name) {
   const tempName = arr[2]
   const dirName = `${type}-${materialType}-${tempName}`
   if (type === 'vue') {
+    if (name === 'vue-blocks-AddrPc') return
     vueConfig.files.forEach(fileType => {
       // 获取模板文件夹中的文件（均以index命名）
       const fileContent = clearEnter(getTempFileContent(tempDir, fileType))
