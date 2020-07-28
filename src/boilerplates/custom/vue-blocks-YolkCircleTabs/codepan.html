@@ -1,0 +1,22 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <div class="circle-tabs">
+    <div class="circle-tabs__nav-content" ref="nav">
+      <div
+        class="circle-tabs__tab-item"
+        :style="tabItemStyle"
+        :class="{
+            'circle-tabs__tab-item--active': tab.type === curActive,
+        }"
+        ref="tabs"
+        v-for="(tab, index) in tabs" :key="index+'_tab'"
+        @click="clickTabItem(tab, index)"
+      >
+        <span>{{ tab.title }}</span>
+      </div>
+      <div class="circle-tabs__blank-item"></div>
+    </div>
+  </div>
+
+</div>

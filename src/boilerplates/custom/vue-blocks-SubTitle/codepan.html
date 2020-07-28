@@ -1,0 +1,19 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <div class="house-title row-center-start">
+    <h3 class="house-title__text">
+      <span class="house-title__split"></span>
+      <span class="house-title__title-text">{{title}}</span>
+    </h3>
+    <div
+      class="house-title__btn row-center"
+      v-if="isShowHandleBtn"
+      @click="clickTitleHandleBtn"
+    >
+      <span style="line-height: .3rem">{{handleBtnText}}</span>
+      <i class="house-title__btn-arrow"></i>
+    </div>
+  </div>
+
+</div>

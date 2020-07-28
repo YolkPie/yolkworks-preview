@@ -1,3 +1,3 @@
-webpackJsonp([18],{119:/*!*********************************************************************!*\
+webpackJsonp([18],{163:/*!*********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/boilerplates/react/codepan.js ***!
   \*********************************************************************//*! dynamic exports provided *//*! all exports used */function(a){a.exports="class App extends React.Component {\r\n  state = {\r\n    count: 0\r\n  }\r\n\r\n  inc = () => this.setState({\r\n    count: this.state.count + 1\r\n  })\r\n\r\n  dec = () => this.setState({\r\n    count: this.state.count - 1\r\n  })\r\n\r\n  render() {\r\n    return (\r\n      <div>\r\n        <h2>{ this.state.count }</h2>\r\n        <button onClick={this.inc}>Increment</button>\r\n        <button onClick={this.dec}>Decrement</button>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n\r\nReactDOM.render(<App />, document.getElementById('app'))\r\n"}});

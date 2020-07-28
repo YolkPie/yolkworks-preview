@@ -1,0 +1,24 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <div class="yolk-tabs" v-if="tabs&&tabs.length">
+    <div class="yolk-tabs__nav-wrap" :style="navStyle">
+      <div class="yolk-tabs__nav-content" ref="nav">
+        <div class="yolk-tabs__line" :style="innerLineStyle" ref="tabLine"></div>
+        <div
+          class="yolk-tabs__tab-item"
+          :style="tabItemStyle"
+          :class="{
+            'yolk-tabs__tab-item--active': index === curActive,
+          }"
+          ref="tabs"
+          v-for="(tab, index) in tabs" :key="index+'_tab'"
+          @click="clickTabItem(tab, index)"
+        >
+          <span>{{ tab.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

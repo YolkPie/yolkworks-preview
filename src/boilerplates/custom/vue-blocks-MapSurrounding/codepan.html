@@ -1,0 +1,37 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <div class="house-location">
+    <!--不要直接在地图盒子上通过@click设置点击事件，可能会执行多次点击事件-->
+    <!--直接给添加地图点击事件-->
+    <div
+      class="map-box"
+      id="map-box"
+    ></div>
+    <div class="tab-box">
+      <ul class="tab-ul flex-row">
+        <li
+          class="tab-li flex-one"
+          :class="{'selected-li': slectedIndex == index}"
+          v-for="(item, index) in tabs"
+          :key="'mapTab_'+index"
+          @click="switchTab(item.name, index)"
+        >{{item.name}}
+        </li>
+      </ul>
+      <div class="info-box">
+        <ul class="info-ul border-bottom" v-if="displayedPoiList && displayedPoiList.length">
+          <li class="info-li" v-for="(item, index) in displayedPoiList" :key="'infoLi_'+index">
+            <span class="label-name">{{item.customLabelName}}</span>
+            <span class="info-details">{{item.name}}</span>
+            <span class="distance">{{item.customDist}}</span>
+          </li>
+        </ul>
+        <div class="no-info border-bottom" v-else>
+          <p class="tip-info">抱歉，3公里内没有{{tabs[slectedIndex].name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <ul class="steps-box" v-if="stepsTitle">
+    <li
+      class="step-li"
+      :class="{'passed-step': activeStep > index}"
+      v-for="(item, index) in stepsTitle">
+      <div class="step-bar">
+        <div class="step-bar_inner">
+          <span class="step-bar_num">{{index+1}}</span>
+        </div>
+      </div>
+      <p class="step-des">{{item}}</p>
+    </li>
+  </ul>
+
+</div>

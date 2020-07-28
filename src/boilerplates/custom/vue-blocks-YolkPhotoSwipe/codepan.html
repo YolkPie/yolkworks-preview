@@ -1,0 +1,26 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <!--1. 取消了photoswipe图片需设定尺寸的要求-->
+  <!--2. 支持slot扩展头部和尾部内容-->
+  <div
+    ref="scaler" class="pswp"
+    :style="pswpStyle"
+    tabindex="-1" role="dialog">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="yolk-pswp__header">
+        <slot name="header"></slot>
+      </div>
+      <div class="yolk-pswp__footer">
+        <slot name="footer"></slot>
+      </div>
+    </div>
+  </div>
+
+</div>
